@@ -31,20 +31,20 @@
 				    <div class="panel-body">
 						<form class="form-horizontal" role="form" action="/admin/editTeacher" id="editfrom" method="post">
 							  <div class="form-group">
-							    <label for="inputEmail3" class="col-sm-2 control-label">工号</label>
+							    <label for="userId" class="col-sm-2 control-label">工号</label>
 							    <div class="col-sm-10">
-							      <input readonly="readonly" type="number" class="form-control" id="inputEmail3" name="userid" placeholder="请输入工号" value="${teacher.userid}">
+							      <input readonly="readonly" type="number" class="form-control" id="userId" name="userId" placeholder="请输入工号" value="${teacher.userId}">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
+							    <label for="userName" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-10">
-							      <input type="text" class="form-control" id="inputPassword3" name="username" placeholder="请输入姓名" value="${teacher.username}">
+							      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入姓名" value="${teacher.userName}">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">性别</label>
-							    <div class="col-sm-10">
+							    <label for="sex" class="col-sm-2 control-label">性别</label>
+							    <div class="col-sm-10" id="sex">
 								    <label class="checkbox-inline">
 									   	<input type="radio" name="sex" value="男" checked>男
 									</label>
@@ -54,13 +54,13 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">出生年份</label>
+							    <label for="birthYear" class="col-sm-2 control-label">出生年份</label>
 							    <div class="col-sm-10">
-								    <input type="date" value="<fmt:formatDate value="${teacher.birthyear}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="birthyear"/>
+								    <input type="date" id="birthYear" value="<fmt:formatDate value="${teacher.birthYear}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="birthYear"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label" name="degree">学历：</label>
+								<label for="degree" class="col-sm-2 control-label">学历：</label>
 								<div class="col-sm-10">
 									<select class="form-control" name="degree" id="degree">
 										<option value="本科">本科</option>
@@ -70,7 +70,7 @@
 								</div>
 							  </div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label" name="title" >职称：</label>
+								<label for="title" class="col-sm-2 control-label">职称：</label>
 								<div class="col-sm-10">
 									<select class="form-control" name="title" id="title">
 										<option value="普通教师">普通教师</option>
@@ -82,17 +82,17 @@
 								</div>
 							</div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label" name="grade">入职时间</label>
+							    <label for="grade" class="col-sm-2 control-label">入职时间</label>
 							    <div class="col-sm-10">
-								    <input type="date" value="<fmt:formatDate value="${teacher.grade}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="grade"/>
+								    <input type="date" id="grade" value="<fmt:formatDate value="${teacher.grade}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="grade"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label" name="grade">所属院系</label>
+							    <label for="collegeId" class="col-sm-2 control-label">所属院系</label>
 							    <div class="col-sm-10">
-								    <select class="form-control" name="collegeid" id="college">
+								    <select class="form-control" name="collegeId" id="collegeId">
 										<c:forEach items="${collegeList}" var="item">
-											<option value="${item.collegeid}">${item.collegename}</option>
+											<option value="${item.collegeId}">${item.collegeName}</option>
 										</c:forEach>
 								    </select>
 							    </div>
@@ -120,7 +120,7 @@
 
         var collegeSelect = $("#college option");
         for (var i=0; i<collegeSelect.length; i++) {
-            if (collegeSelect[i].value == '${teacher.collegeid}') {
+            if (collegeSelect[i].value == '${teacher.collegeId}') {
                 collegeSelect[i].selected = true;
             }
         }

@@ -29,25 +29,25 @@
 						<form name="reset" class="form-horizontal" role="form" action="/teacher/mark" id="editfrom" method="post" onsubmit="return check()">
 							<div class="form-group">
 								<div class="col-sm-10">
-									<input  readonly="readonly" type="hidden" class="form-control" name="courseid" id="inputEmail3" value="${selectedCourse.courseid}">
+									<input  readonly="readonly" type="hidden" class="form-control" name="courseid" id="courseid" value="${selectedCourse.courseId}">
 								</div>
 							</div>
 							<div class="form-group">
-							    <label for="inputEmail3" class="col-sm-2 control-label">学号</label>
+							    <label for="studentid" class="col-sm-2 control-label">学号</label>
 							    <div class="col-sm-10">
-							      <input  readonly="readonly" type="text" class="form-control" name="studentid" id="inputEmail3" value="${selectedCourse.studentid}">
+							      <input  readonly="readonly" type="text" class="form-control" name="studentid" id="studentid" value="${selectedCourse.studentId}">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
+							    <label for="name" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-10">
-							      <input  readonly="readonly" type="text" name="name" class="form-control" id="inputPassword3" value="${selectedCourse.studentCustom.username}">
+							      <input  readonly="readonly" type="text" name="name" class="form-control" id="name" value="${selectedCourse.studentCustom.userName}">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">成绩</label>
+							    <label for="core" class="col-sm-2 control-label">成绩</label>
 							    <div class="col-sm-10">
-							      <input type="number" name="mark" class="form-control" id="inputPassword3" placeholder="请输入成绩">
+							      <input type="number" name="mark" class="form-control" id="core" placeholder="请输入成绩">
 							    </div>
 							  </div>
 							  <div class="form-group" style="text-align: center">
@@ -71,7 +71,7 @@
 <script>
     $("#nav li:nth-child(1)").addClass("active")
     function check() {
-        if(reset.mark.value==""||reset.mark.value==null)
+        if(reset.core.value==""||reset.core.value==null)
         {alert("请输入成绩");return false;}
     }
 </script>

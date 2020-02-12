@@ -7,7 +7,7 @@
   <!--加载spring容器-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/classes/spring/applicationContext-*.xml</param-value>
+    <param-value>/WEB-INF/spring/applicationContext-*.xml</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -17,12 +17,9 @@
   <servlet>
     <servlet-name>springmvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!--contextConfigLocation配置SpringMVC加载的配置文件（配置处理器，映射器等等）
-    如果不配置contextConfigLocation，默认加载的是：/WEB-INF/servlet名称-servlet.xml(springmvc-servlet.xml)
-    -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring/springmvc.xml</param-value>
+      <param-value>/WEB-INF/spring/springmvc.xml</param-value>
     </init-param>
   </servlet>
 
@@ -32,7 +29,7 @@
   </servlet-mapping>
 
 
-  <!--spring为我们提供的乱码过滤器-->
+  <!--乱码过滤器-->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

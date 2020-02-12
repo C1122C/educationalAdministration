@@ -52,13 +52,13 @@
 								<%--输出还没修完的课程--%>
 								<c:if test="${!item.over}">
 									<tr>
-										<td>${item.couseCustom.courseid}</td>
-										<td>${item.couseCustom.coursename}</td>
-										<td>${item.couseCustom.teacherid}</td>
-										<td>${item.couseCustom.coursetime}</td>
+										<td>${item.couseCustom.courseId}</td>
+										<td>${item.couseCustom.courseName}</td>
+										<td>${item.couseCustom.teacherId}</td>
+										<td>${item.couseCustom.courseTime}</td>
 										<td>${item.couseCustom.classroom}</td>
-										<td>${item.couseCustom.courseweek}</td>
-										<td>${item.couseCustom.coursetype}</td>
+										<td>${item.couseCustom.courseWeek}</td>
+										<td>${item.couseCustom.courseType}</td>
 										<td>${item.couseCustom.score}</td>
 										<td>
 											<button class="btn btn-default btn-xs btn-info" onClick="location.href='/student/outCourse?id=${item.courseid}'">退课</button>

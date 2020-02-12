@@ -2,69 +2,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>教学支持系统</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<style type="text/css">
-	body{
-	   background: url(images/a.jpg)repeat;
-	}
-	#login-box {
-		/*border:1px solid #F00;*/
-		padding: 35px;
-		border-radius:15px;
-		background: #56666B;
-		color: #fff;
-	}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/exam.css">
+	<script src="/js/vue.js"></script>
 </head>
-<body>
-	<div class="container" id="top">
-		<div class="row" style="margin-top: 280px; ">
-			<div class="col-md-4"></div>
-			<div class="col-md-4" id="login-box">
-				<form class="form-horizontal" role="form" action="/login" id="from1" method="post">
-				  <div class="form-group">
-				    <label for="firstname" class="col-sm-3 control-label">用户id</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="userID" placeholder="请输入名字" name="username">
-				    </div>
-				  </div>
-				  <div class="form-group">
-				    <label for="lastname" class="col-sm-3 control-label">密码</label>
-				    <div class="col-sm-9">
-				      <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
-				    </div>
-				  </div>
-				  <%--<div class="form-group">--%>
-				    <%--<div class="col-sm-offset-2 col-sm-10">--%>
-				      <%--<div class="checkbox">--%>
-				        <%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="1" checked>管理员--%>
-						<%--</label>--%>
-						<%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="2">老师--%>
-						<%--</label>--%>
-						<%--<label class="checkbox-inline">--%>
-							<%--<input type="radio" name="role" value="3">学生--%>
-						<%--</label>--%>
-				      <%--</div>--%>
-				    <%--</div>--%>
-				  <%--</div>--%>
-				  <div class="form-group pull-right" style="margin-right: 15px;">
-				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-default btn-info">登录</button>
-				    </div>
-				  </div>
-				</form>
+<body id="login-page">
+	<header role="banner" class="head">
+		<nav role="navigation" class="nav-inner">
+			<div class="container">
+				<a class="brand" style="padding-left: 40px">教学支持系统</a>
+				<div class="usermenu">
+					<span class="login" style="padding-right: 40px">您尚未登录</span>
+				</div>
 			</div>
-			<div class="col-md-4"></div>
-		</div>		
+		</nav>
+	</header>
+	<div id="page" class="container-fluid">
+		<header style="min-height: 121px;"></header>
+		<div id="page-content" class="row-fluid">
+			<section id="region-main" style="width: 100%;margin-left: 0;">
+				<div role="main">
+					<div class="loginbox clearfix">
+						<div>
+							<h2>登录</h2>
+							<div class="loginsub subcontent">
+								<form id="login" action="/login" method="post" role="form">
+									<div class="loginform">
+										<div class="form-label">
+											<label for="userId">用户名</label>
+										</div>
+										<div class="form-input">
+											<input type="text" id="userId" name="userId" size="15">
+										</div>
+										<div class="clearer"></div>
+										<div class="form-label">
+											<label for="password">密码</label>
+										</div>
+										<div class="form-input">
+											<input type="password" id="password" name="password" size="15">
+										</div>
+									</div>
+									<div class="clearer"></div>
+									<input type="submit" id="loginbtn" value="登录">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 	</div>
 </body>
 </html>

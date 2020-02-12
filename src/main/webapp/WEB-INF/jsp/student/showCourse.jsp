@@ -55,13 +55,13 @@
 					        <tbody>
 							<c:forEach  items="${courseList}" var="item">
 								<tr>
-									<td>${item.courseid}</td>
-									<td>${item.coursename}</td>
-									<td>${item.teacherid}</td>
-									<td>${item.coursetime}</td>
+									<td>${item.courseId}</td>
+									<td>${item.courseName}</td>
+									<td>${item.teacherId}</td>
+									<td>${item.courseTime}</td>
 									<td>${item.classroom}</td>
-									<td>${item.courseweek}</td>
-									<td>${item.coursetype}</td>
+									<td>${item.courseWeek}</td>
+									<td>${item.courseType}</td>
 									<td>${item.score}</td>
 									<td>
 										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/student/stuSelectedCourse?id=${item.courseid}'">选课</button>

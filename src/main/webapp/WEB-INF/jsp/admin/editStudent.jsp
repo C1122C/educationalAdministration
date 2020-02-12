@@ -32,24 +32,24 @@
 				    <div class="panel-body">
 						<form class="form-horizontal" role="form" action="/admin/editStudent" id="editfrom" method="post">
 							  <div class="form-group ">
-							    <label for="inputEmail3" class="col-sm-2 control-label" >学号</label>
+							    <label for="userId" class="col-sm-2 control-label" >学号</label>
 							    <div class="col-sm-10">
-							      <input readonly="readonly" type="number" class="form-control" id="inputEmail3" name="userid" placeholder="请输入学号"
+							      <input readonly="readonly" type="number" class="form-control" id="userId" name="userId" placeholder="请输入学号"
 								  <c:if test='${student!=null}'>
-										 value="${student.userid}"
+										 value="${student.userId}"
 								  </c:if>>
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
+							    <label for="userName" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-10">
-							      <input type="text" class="form-control" id="inputPassword3" name="username" placeholder="请输入姓名" value="${student.username}">
+							      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入姓名" value="${student.userName}">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">性别</label>
+							    <label for="sex" class="col-sm-2 control-label">性别</label>
 							    <div class="col-sm-10">
-								    <label class="checkbox-inline">
+								    <label class="checkbox-inline" id="sex">
 									   	<input type="radio" name="sex" value="男" checked>男
 									</label>
 									<label class="checkbox-inline">
@@ -58,23 +58,23 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label">出生年份</label>
+							    <label for="birthYear" class="col-sm-2 control-label">出生年份</label>
 							    <div class="col-sm-10">
-								    <input type="date" value="<fmt:formatDate value="${student.birthyear}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="birthyear"/>
+								    <input type="date" id="birthYear" value="<fmt:formatDate value="${student.birthYear}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="birthYear"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label" name="grade">入学时间</label>
+							    <label for="grade" class="col-sm-2 control-label">入学时间</label>
 							    <div class="col-sm-10">
-								    <input type="date" value="<fmt:formatDate value="${student.grade}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="grade"/>
+								    <input type="date" id="grade" value="<fmt:formatDate value="${student.grade}" dateStyle="medium" pattern="yyyy-MM-dd" />" name="grade"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPassword3" class="col-sm-2 control-label" name="grade">所属院系</label>
+							    <label for="collegeId" class="col-sm-2 control-label">所属院系</label>
 							    <div class="col-sm-10">
-								    <select class="form-control" name="collegeid" id="college">
+								    <select class="form-control" name="collegeId" id="collegeId">
 										<c:forEach items="${collegeList}" var="item">
-											<option value="${item.collegeid}">${item.collegename}</option>
+											<option value="${item.collegeId}">${item.collegeName}</option>
 										</c:forEach>
 								    </select>
 							    </div>
@@ -102,7 +102,7 @@
 
         var collegeSelect = $("#college option");
         for (var i=0; i<collegeSelect.length; i++) {
-            if (collegeSelect[i].value == '${student.collegeid}') {
+            if (collegeSelect[i].value == '${student.collegeId}') {
                 collegeSelect[i].selected = true;
             }
         }
