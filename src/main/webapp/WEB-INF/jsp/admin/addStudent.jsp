@@ -4,19 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>添加学生</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 		<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -32,19 +25,13 @@
 							  <div class="form-group">
 							    <label for="userId" class="col-sm-2 control-label">学号</label>
 							    <div class="col-sm-10">
-							      <input type="number" class="form-control" id="userId" name="userId" placeholder="请输入学号"
-								  <c:if test='${student!=null}'>
-										 value="${student.userId}"
-								  </c:if>>
+							      <input type="number" class="form-control" id="userId" name="userId" placeholder="请输入学号"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label for="userName" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-10">
-							      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入姓名"
-								  <c:if test='${student!=null}'>
-										 value="${student.userName}"
-								  </c:if>>
+							      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入姓名"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -65,13 +52,13 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="grade" class="col-sm-2 control-label" name="grade">入学时间</label>
+							    <label for="grade" class="col-sm-2 control-label">入学时间</label>
 							    <div class="col-sm-10">
 								    <input type="date" value="2015-09-02" id="grade" name="grade"/>
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="collegeId" class="col-sm-2 control-label" name="grade">所属院系</label>
+							    <label for="collegeId" class="col-sm-2 control-label">所属院系</label>
 							    <div class="col-sm-10">
 								    <select class="form-control" id="collegeId" name="collegeId">
 										<c:forEach items="${collegeList}" var="item">
@@ -98,7 +85,4 @@
 	</div>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#nav li:nth-child(2)").addClass("active")
-	</script>
 </html>

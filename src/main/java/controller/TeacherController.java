@@ -63,9 +63,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/mark", method = {RequestMethod.GET})
     public String markUI(SelectedCourseCustom scc, Model model) throws Exception {
-
         SelectedCourseCustom selectedCourseCustom = selectedCourseService.findOne(scc);
-
         model.addAttribute("selectedCourse", selectedCourseCustom);
 
         return "teacher/mark";
@@ -74,7 +72,6 @@ public class TeacherController {
 
     @RequestMapping(value = "/mark", method = {RequestMethod.POST})
     public String mark(SelectedCourseCustom scc) throws Exception {
-
         selectedCourseService.updateOne(scc);
 
         return "redirect:/teacher/showGrade?id="+scc.getCourseId();

@@ -4,19 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>添加课程</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- 顶栏 -->
 <jsp:include page="top.jsp"></jsp:include>
-<!-- 中间主体 -->
 <div class="container" id="content">
 	<div class="row">
 		<jsp:include page="menu.jsp"></jsp:include>
@@ -42,7 +35,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="teacherId" class="col-sm-2 control-label" name="teacherId">授课老师编号</label>
+							<label for="teacherId" class="col-sm-2 control-label">授课老师编号</label>
 							<div class="col-sm-10">
 								<select class="form-control" name="teacherId" id="teacherId">
 									<c:forEach items="${teacherList}" var="item">
@@ -80,7 +73,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="collegeId" class="col-sm-2 control-label" name="grade">所属院系</label>
+							<label for="collegeId" class="col-sm-2 control-label">所属院系</label>
 							<div class="col-sm-10">
 								<select class="form-control" id="collegeId" name="collegeId">
 									<c:forEach items="${collegeList}" var="item">
@@ -113,7 +106,4 @@
 	</div>
 </div>
 </body>
-<script type="text/javascript">
-    $("#nav li:nth-child(1)").addClass("active")
-</script>
 </html>

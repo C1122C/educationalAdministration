@@ -10,6 +10,9 @@ public interface StudentService {
     //根据id个更新学生信息
     void updateById(Integer id, StudentCustom studentCustom) throws Exception;
 
+    //根据id个更新学生信息
+    void adUpdateById(Integer id, StudentCustom studentCustom) throws Exception;
+
     //根据id删除学生信息
     void removeById(Integer id) throws Exception;
 

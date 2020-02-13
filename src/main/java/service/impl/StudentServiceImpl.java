@@ -25,10 +25,16 @@ public class StudentServiceImpl implements StudentService {
     private CollegeMapper collegeMapper;
 
     public void updateById(Integer id, StudentCustom studentCustom) throws Exception {
-        System.out.println("IN RIGHT SERVICE");
+        //System.out.println("IN RIGHT SERVICE");
         studentCustom.setUserId(id);
         studentMapper.stuUpdateByPrimaryKey(studentCustom);
-        System.out.println("FINISH DB OPERATION");
+        //System.out.println("FINISH DB OPERATION");
+    }
+
+    public void adUpdateById(Integer id, StudentCustom studentCustom) throws Exception {
+        studentCustom.setUserId(id);
+        studentMapper.updateByPrimaryKey(studentCustom);
+        //System.out.println("FINISH DB OPERATION");
     }
 
     public void removeById(Integer id) throws Exception {

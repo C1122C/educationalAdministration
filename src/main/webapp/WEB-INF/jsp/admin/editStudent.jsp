@@ -2,23 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>个人信息</title>
-
+	<title>修改学生信息</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 		<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -26,7 +18,7 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-							<h1 class="col-md-5">个人信息</h1>
+							<h1 class="col-md-5">修改学生信息</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">
@@ -97,14 +89,4 @@
 	</div>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#nav li:nth-child(2)").addClass("active")
-
-        var collegeSelect = $("#college option");
-        for (var i=0; i<collegeSelect.length; i++) {
-            if (collegeSelect[i].value == '${student.collegeId}') {
-                collegeSelect[i].selected = true;
-            }
-        }
-	</script>
 </html>

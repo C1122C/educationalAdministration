@@ -4,19 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>课程信息修改</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 		<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -24,7 +17,7 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 style="text-align: center;">修改课程信息</h1>
+					    	<h1 style="text-align: center;">课程信息</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">
@@ -32,13 +25,13 @@
 							  <div class="form-group">
 							    <label for="courseId" class="col-sm-2 control-label">课程号</label>
 							    <div class="col-sm-10">
-							      <input readonly="readonly"  type="number" class="form-control" id="courseId" value="${course.courseId}" name="courseId" placeholder="请输入课程号">
+							      <input readonly="readonly"  type="number" class="form-control" id="courseId" value="${course.courseId}" name="courseId">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label for="courseName" class="col-sm-2 control-label">课程名称</label>
-									<div class="col-sm-10">
-							      <input type="text" class="form-control" id="courseName" name="courseName" value="${course.courseName}" placeholder="请输入课程名称">
+								  <div class="col-sm-10">
+							      <input type="text" class="form-control" id="courseName" name="courseName" value="${course.courseName}">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -54,19 +47,19 @@
 							<div class="form-group">
 								<label for="courseTime" class="col-sm-2 control-label">上课时间</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="courseTime" name="courseTime" value="${course.courseTime}" placeholder="请输入上课时间">
+									<input type="text" class="form-control" id="courseTime" name="courseTime" value="${course.courseTime}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="classroom" class="col-sm-2 control-label">上课地点</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="classroom" name="classroom" value="${course.classroom}" placeholder="上课地点">
+									<input type="text" class="form-control" id="classroom" name="classroom" value="${course.classroom}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="courseWeek" class="col-sm-2 control-label">周数</label>
 								<div class="col-sm-10">
-									<input type="number" class="form-control" id="courseWeek" name="courseWeek" value="${course.courseWeek}" placeholder="请输入周数">
+									<input type="number" class="form-control" id="courseWeek" name="courseWeek" value="${course.courseWeek}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -92,7 +85,7 @@
 							<div class="form-group">
 								<label for="score" class="col-sm-2 control-label">学分：</label>
 								<div class="col-sm-10">
-									<input type="number" class="form-control" id="score" name="score" value="${course.score}" placeholder="请输入学分">
+									<input type="number" class="form-control" id="score" name="score" value="${course.score}">
 								</div>
 							</div>
 							<div class="form-group" style="text-align: center">
@@ -113,29 +106,4 @@
 	</div>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#nav li:nth-child(1)").addClass("active")
-
-        var collegeSelect = $("#college option");
-        for (var i=0; i<collegeSelect.length; i++) {
-            if (collegeSelect[i].value == '${course.collegeid}') {
-                collegeSelect[i].selected = true;
-            }
-        }
-
-        var degreeSelect = $("#coursetype option");
-        for (var i=0; i<coursetypeSelect.length; i++) {
-            if (coursetypeSelect[i].value == '${course.coursetype}') {
-                coursetypeSelect[i].selected = true;
-            }
-        }
-
-        var teacheridSelect = $("#teacherid option");
-        for (var i=0; i<teacheridSelect.length; i++) {
-            if (teacheridSelect[i].value == '${course.teacherid}') {
-                teacheridSelect[i].selected = true;
-            }
-        }
-
-	</script>
 </html>

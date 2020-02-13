@@ -111,7 +111,6 @@ public class StudentController {
         return "/student/overCourse";
     }
 
-    //获取信息
     @RequestMapping(value = "/personalInfo")
     public String personalInfo(Model model) throws Exception {
         Subject subject = SecurityUtils.getSubject();

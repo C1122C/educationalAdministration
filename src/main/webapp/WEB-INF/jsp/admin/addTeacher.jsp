@@ -4,19 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>添加教师</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 		<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -32,7 +25,7 @@
 							  <div class="form-group">
 							    <label for="userId" class="col-sm-2 control-label">工号</label>
 							    <div class="col-sm-10">
-							      <input type="number" class="form-control" id="userId" name="userId" placeholder="请输入学号">
+							      <input type="number" class="form-control" id="userId" name="userId" placeholder="请输入工号">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -114,7 +107,4 @@
 	</div>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#nav li:nth-child(3)").addClass("active")
-	</script>
 </html>

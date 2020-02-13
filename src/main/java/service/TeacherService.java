@@ -10,6 +10,9 @@ public interface TeacherService {
     //根据id更新老师信息
     void updateById(Integer id, TeacherCustom teacherCustom) throws Exception;
 
+    //根据id更新老师信息
+    void adUpdateById(Integer id, TeacherCustom teacherCustom) throws Exception;
+
     //根据id删除老师信息
     void removeById(Integer id) throws Exception;
 

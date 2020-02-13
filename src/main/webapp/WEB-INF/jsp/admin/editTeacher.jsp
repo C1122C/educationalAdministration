@@ -5,19 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>修改教师信息</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 		<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -33,13 +26,13 @@
 							  <div class="form-group">
 							    <label for="userId" class="col-sm-2 control-label">工号</label>
 							    <div class="col-sm-10">
-							      <input readonly="readonly" type="number" class="form-control" id="userId" name="userId" placeholder="请输入工号" value="${teacher.userId}">
+							      <input readonly="readonly" type="number" class="form-control" id="userId" name="userId" value="${teacher.userId}">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label for="userName" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-10">
-							      <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入姓名" value="${teacher.userName}">
+							      <input type="text" class="form-control" id="userName" name="userName" value="${teacher.userName}">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -115,29 +108,4 @@
 	</div>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#nav li:nth-child(3)").addClass("active");
-
-        var collegeSelect = $("#college option");
-        for (var i=0; i<collegeSelect.length; i++) {
-            if (collegeSelect[i].value == '${teacher.collegeId}') {
-                collegeSelect[i].selected = true;
-            }
-        }
-
-        var degreeSelect = $("#degree option");
-        var titleSelect = $("#title option");
-
-        for (var i=0; i<degreeSelect.length; i++) {
-            if (degreeSelect[i].value == '${teacher.degree}') {
-                degreeSelect[i].selected = true;
-            }
-        }
-        for (var i=0; i<titleSelect.length; i++) {
-            if (titleSelect[i].value == '${teacher.title}') {
-                titleSelect[i].selected = true;
-            }
-        }
-
-	</script>
 </html>

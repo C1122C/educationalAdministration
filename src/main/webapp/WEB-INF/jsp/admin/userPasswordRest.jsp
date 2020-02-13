@@ -2,19 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>密码重置</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 	<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -22,13 +15,13 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 style="text-align: center;">重置其他用户密码</h1>
+					    	<h1 style="text-align: center;">重置用户密码</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">
-						<form class="form-horizontal" name="reset" role="form" action="/admin/userPasswordRest" id="editfrom" method="post" onsubmit="return check()">
+						<form class="form-horizontal" name="reset" role="form" action="/admin/userPasswordRest" id="editfrom" method="post">
 							  <div class="form-group">
-							    <label for="userName" class="col-sm-2 control-label">账号(非管理员账号)</label>
+							    <label for="userName" class="col-sm-2 control-label">账号</label>
 							    <div class="col-sm-10">
 							      <input type="text" class="form-control" name="userName" id="userName" placeholder="请输入用户名">
 							    </div>
@@ -63,18 +56,4 @@
 	</div>
 	</div>
 </body>
-<script>
-    $("#nav li:nth-child(4)").addClass("active")
-
-    function check() {
-        if(reset.userName.value==""||reset.userName.value==null)
-        {alert("请输入账户名称");return false;}
-        if(reset.password.value==""||reset.password.value==null)
-        {alert("请输入重置密码");return false;}
-        if(reset.password2.value==""||reset.password2.value==null)
-        {alert("请输入再次输入密码");return false;}
-        if(reset.password.value != reset.password2.value)
-        {alert("两次密码不正确");return false;}
-    }
-</script>
 </html>

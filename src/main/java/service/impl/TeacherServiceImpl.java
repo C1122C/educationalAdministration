@@ -34,17 +34,19 @@ public class TeacherServiceImpl implements TeacherService {
         teacherMapper.updateByPrimaryKey(teacherCustom);
     }
 
+    public void adUpdateById(Integer id, TeacherCustom teacherCustom) throws Exception {
+        teacherCustom.setUserId(id);
+        teacherMapper.adUpdateByPrimaryKey(teacherCustom);
+    }
+
     public void removeById(Integer id) throws Exception {
         CourseExample courseExample = new CourseExample();
-
         CourseExample.Criteria criteria = courseExample.createCriteria();
         criteria.andTeacherIdEqualTo(id);
         List<Course> list = courseMapper.selectByExample(courseExample);
-
         if (list.size() != 0) {
             throw new CustomException("请先删除该名老师所教授的课程");
         }
-
         teacherMapper.deleteByPrimaryKey(id);
     }
 

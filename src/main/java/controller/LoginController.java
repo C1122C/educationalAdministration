@@ -7,18 +7,15 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
 
-    //登录跳转
     @RequestMapping(value = "/login", method = {RequestMethod.GET})
     public String loginUI() throws Exception {
         return "../../login";
     }
 
-    //登录表单处理
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
     //@ResponseBody
     public String login(UserLogin userLogin) throws Exception {
