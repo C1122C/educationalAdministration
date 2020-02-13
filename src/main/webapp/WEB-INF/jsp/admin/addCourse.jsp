@@ -46,7 +46,7 @@
 							<div class="col-sm-10">
 								<select class="form-control" name="teacherId" id="teacherId">
 									<c:forEach items="${teacherList}" var="item">
-										<option value="${item.userId}">${item.username}</option>
+										<option value="${item.userId}">${item.userName}</option>
 									</c:forEach>
 								</select>
 							</div>

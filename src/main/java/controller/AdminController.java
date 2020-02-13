@@ -349,6 +349,8 @@ public class AdminController {
         return "redirect:/admin/showCourse";
     }
 
+
+
     //搜索课程
     @RequestMapping(value = "selectCourse", method = {RequestMethod.POST})
     private String selectCourse(String findByName, Model model) throws Exception {

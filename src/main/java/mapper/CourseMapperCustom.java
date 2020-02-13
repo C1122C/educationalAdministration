@@ -9,4 +9,8 @@ public interface CourseMapperCustom {
 
     List<CourseCustom> findByPaging(PagingVO pagingVO) throws Exception;
 
+    List<CourseCustom> stuFindByPaging(PagingVO pagingVO) throws Exception;
+
+    List<CourseCustom> stuSearch(PagingVO pagingVO) throws Exception;
+
 }

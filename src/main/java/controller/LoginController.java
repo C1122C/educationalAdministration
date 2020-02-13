@@ -37,7 +37,7 @@ public class LoginController {
             return "redirect:/teacher/showCourse";
         } else if (subject.hasRole("student")) {
             System.out.println("student log in");
-            return "redirect:/student/showCourse";
+            return "redirect:/student/allCourse";
         }
         System.out.println("unauthc");
         return "/login";

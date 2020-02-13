@@ -10,4 +10,17 @@
         limit #{toPageNo}, #{pageSize}
     </select>
 
+    <select id="stuFindByPaging" parameterType="PagingVO" resultType="CourseCustom">
+        select course.*, college.collegeName
+        from course, college
+        where courseID not in(select courseID from selectedcourse where studentID = #{id,jdbcType=INTEGER}) and course.collegeID = college.collegeID
+        limit #{toPageNo}, #{pageSize}
+    </select>
+
+    <select id="stuSearch" parameterType="PagingVO" resultType="CourseCustom">
+        select course.*, college.collegeName
+        from course, college
+        where courseID not in(select courseID from selectedcourse where studentID = #{id,jdbcType=INTEGER}) and courseName like #{name,jdbcType=VARCHAR} and course.collegeID = college.collegeID
+    </select>
+
 </mapper>

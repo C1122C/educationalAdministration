@@ -55,6 +55,15 @@ public class CourseServiceImpl implements CourseService {
         return list;
     }
 
+    public List<CourseCustom> stuFindByPaging(Integer toPageNo,Integer id) throws Exception {
+        PagingVO pagingVO = new PagingVO();
+        pagingVO.setToPageNo(toPageNo);
+        pagingVO.setId(id);
+
+        List<CourseCustom> list = courseMapperCustom.stuFindByPaging(pagingVO);
+        return list;
+    }
+
     public Boolean save(CourseCustom couseCustom) throws Exception {
         Course course = courseMapper.selectByPrimaryKey(couseCustom.getCourseId());
         if (course == null) {
@@ -110,6 +119,11 @@ public class CourseServiceImpl implements CourseService {
             }
         }
 
+        return courseCustomList;
+    }
+
+    public List<CourseCustom> stuFindByName(PagingVO po) throws Exception {
+        List<CourseCustom> courseCustomList = courseMapperCustom.stuSearch(po);
         return courseCustomList;
     }
 

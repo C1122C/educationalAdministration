@@ -8,6 +8,24 @@ public class PagingVO {
     private int upPageNo;
     private int nextPageNo;
     private int toPageNo = 0;
+    private Integer id;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setToPageNo(Integer toPageNo) {
         this.toPageNo = (toPageNo-1) * pageSize ;

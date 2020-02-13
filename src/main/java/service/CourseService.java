@@ -1,6 +1,8 @@
 package service;
 
 import po.CourseCustom;
+import po.Course;
+import po.PagingVO;
 
 import java.util.List;
 
@@ -15,6 +17,8 @@ public interface CourseService {
     //获取分页查询课程信息
     List<CourseCustom> findByPaging(Integer toPageNo) throws Exception;
 
+    List<CourseCustom> stuFindByPaging(Integer toPageNo,Integer id) throws Exception;
+
     //插入课程信息
     Boolean save(CourseCustom courseCustom) throws Exception;
 
@@ -26,6 +30,8 @@ public interface CourseService {
 
     //根据名字查询
     List<CourseCustom> findByName(String name) throws Exception;
+
+    List<CourseCustom> stuFindByName(PagingVO po) throws Exception;
 
     //根据教师id查找课程
     List<CourseCustom> findByTeacherID(Integer id) throws Exception;
