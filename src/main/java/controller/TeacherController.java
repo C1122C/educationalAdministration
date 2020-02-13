@@ -1,5 +1,6 @@
 package controller;
 
+import exception.CustomException;
 import po.*;
 import service.CourseService;
 import service.SelectedCourseService;
@@ -27,21 +28,30 @@ public class TeacherController {
     @Resource(name = "selectedCourseServiceImpl")
     private SelectedCourseService selectedCourseService;
 
-    // 显示我的课程
     @RequestMapping(value = "/showCourse")
     public String stuCourseShow(Model model) throws Exception {
-
         Subject subject = SecurityUtils.getSubject();
         String username = (String) subject.getPrincipal();
-
         List<CourseCustom> list = courseService.findByTeacherID(Integer.parseInt(username));
         model.addAttribute("courseList", list);
 
         return "teacher/showCourse";
     }
 
-    // 显示成绩
-    @RequestMapping(value = "/gradeCourse")
+    @RequestMapping(value = "/searchCourse")
+    public String searchCourse(String findByName, Model model) throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        Integer username = Integer.parseInt((String)subject.getPrincipal());
+        PagingVO pagingVO = new PagingVO();
+        pagingVO.setId(username);
+        pagingVO.setName('%'+findByName+'%');
+        List<CourseCustom> list = courseService.stuFindByName(pagingVO);
+
+        model.addAttribute("courseList", list);
+        return "teacher/showCourse";
+    }
+
+    @RequestMapping(value = "/showGrade")
     public String gradeCourse(Integer id, Model model) throws Exception {
         if (id == null) {
             return "";
@@ -51,7 +61,6 @@ public class TeacherController {
         return "teacher/showGrade";
     }
 
-    // 打分
     @RequestMapping(value = "/mark", method = {RequestMethod.GET})
     public String markUI(SelectedCourseCustom scc, Model model) throws Exception {
 
@@ -62,19 +71,34 @@ public class TeacherController {
         return "teacher/mark";
     }
 
-    // 打分
+
     @RequestMapping(value = "/mark", method = {RequestMethod.POST})
     public String mark(SelectedCourseCustom scc) throws Exception {
 
         selectedCourseService.updateOne(scc);
 
-        return "redirect:/teacher/gradeCourse?id="+scc.getCourseId();
+        return "redirect:/teacher/showGrade?id="+scc.getCourseId();
     }
 
-    //修改密码
-    @RequestMapping(value = "/passwordRest")
-    public String passwordRest() throws Exception {
-        return "teacher/passwordRest";
+    @RequestMapping(value = "/personalInfo")
+    public String personalInfo(Model model) throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        Integer id = Integer.parseInt((String)subject.getPrincipal());
+        TeacherCustom teacherCustom = teacherService.findById(id);
+        if (teacherCustom == null) {
+            throw new CustomException("未找到该名教师");
+        }
+
+        model.addAttribute("teacher",teacherCustom);
+        return "teacher/personalInfo";
     }
 
+    @RequestMapping(value = "/editInfo", method = {RequestMethod.POST})
+    public String editStudent(TeacherCustom teacherCustom) throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        Integer id = Integer.parseInt((String)subject.getPrincipal());
+        teacherService.updateById(id, teacherCustom);
+
+        return "redirect:/teacher/personalInfo";
+    }
 }

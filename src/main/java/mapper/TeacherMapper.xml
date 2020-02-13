@@ -248,11 +248,7 @@
     update teacher
     set userName = #{userName,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
-      birthYear = #{birthYear,jdbcType=DATE},
-      degree = #{degree,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      grade = #{grade,jdbcType=DATE},
-      collegeID = #{collegeId,jdbcType=INTEGER}
+      birthYear = #{birthYear,jdbcType=DATE}
     where userID = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

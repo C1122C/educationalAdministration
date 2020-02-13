@@ -30,6 +30,7 @@ public class TeacherServiceImpl implements TeacherService {
     private CourseMapper courseMapper;
 
     public void updateById(Integer id, TeacherCustom teacherCustom) throws Exception {
+        teacherCustom.setUserId(id);
         teacherMapper.updateByPrimaryKey(teacherCustom);
     }
 

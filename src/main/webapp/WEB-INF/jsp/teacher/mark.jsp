@@ -2,19 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>评分</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- 引入bootstrap -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 顶栏 -->
 	<jsp:include page="top.jsp"></jsp:include>
-	<!-- 中间主体 -->
 	<div class="container" id="content">
 		<div class="row">
 			<jsp:include page="menu.jsp"></jsp:include>
@@ -22,20 +15,21 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 style="text-align: center;">学生打分</h1>
+					    	<h1 style="text-align: center;">课程评分</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">
-						<form name="reset" class="form-horizontal" role="form" action="/teacher/mark" id="editfrom" method="post" onsubmit="return check()">
+						<form name="reset" class="form-horizontal" role="form" action="/teacher/mark" id="editfrom" method="post">
 							<div class="form-group">
+								<label for="courseId" class="col-sm-2 control-label">课程编号</label>
 								<div class="col-sm-10">
-									<input  readonly="readonly" type="hidden" class="form-control" name="courseid" id="courseid" value="${selectedCourse.courseId}">
+									<input  readonly="readonly" type="text" class="form-control" name="courseId" id="courseId" value="${selectedCourse.courseId}">
 								</div>
 							</div>
 							<div class="form-group">
-							    <label for="studentid" class="col-sm-2 control-label">学号</label>
+							    <label for="studentId" class="col-sm-2 control-label">学号</label>
 							    <div class="col-sm-10">
-							      <input  readonly="readonly" type="text" class="form-control" name="studentid" id="studentid" value="${selectedCourse.studentId}">
+							      <input  readonly="readonly" type="text" class="form-control" name="studentId" id="studentId" value="${selectedCourse.studentId}">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -45,9 +39,9 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="core" class="col-sm-2 control-label">成绩</label>
+							    <label for="mark" class="col-sm-2 control-label">成绩</label>
 							    <div class="col-sm-10">
-							      <input type="number" name="mark" class="form-control" id="core" placeholder="请输入成绩">
+							      <input type="number" name="mark" class="form-control" id="mark" placeholder="请输入成绩">
 							    </div>
 							  </div>
 							  <div class="form-group" style="text-align: center">
@@ -68,11 +62,4 @@
 	</div>
 	</div>
 </body>
-<script>
-    $("#nav li:nth-child(1)").addClass("active")
-    function check() {
-        if(reset.core.value==""||reset.core.value==null)
-        {alert("请输入成绩");return false;}
-    }
-</script>
 </html>
