@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>全部课程</title>
+	<title>可选课程</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
@@ -22,7 +22,7 @@
 							<form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="/student/searchCourse" id="form1" method="post">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="请输入课程名" name="findByName">
-									<span class="input-group-addon btn" onclick="document.getElementById('form1').submit" id="sub">搜索</span>
+									<span class="input-group-addon btn" onclick="document.getElementById('form1').submit()" id="sub">搜索</span>
 								</div>
 							</form>
 
@@ -52,7 +52,7 @@
 									<td>${item.courseType}</td>
 									<td>${item.score}</td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/student/stuSelectedCourse?id=${item.courseId}'">选课</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/student/selectCourse?id=${item.courseId}'">选课</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -64,16 +64,16 @@
 								<ul class="pagination">
 									<li><a href="/student/allCourse?page=${pagingVO.upPageNo}">&laquo;上一页</a></li>
 									<li class="active"><a href="">${pagingVO.curentPageNo}</a></li>
-									<c:if test="${pagingVO.curentPageNo+1 <= pagingVO.totalCount}">
+									<c:if test="${pagingVO.curentPageNo+1 < pagingVO.totalCount}">
 										<li><a href="/student/allCourse?page=${pagingVO.curentPageNo+1}">${pagingVO.curentPageNo+1}</a></li>
 									</c:if>
-									<c:if test="${pagingVO.curentPageNo+2 <= pagingVO.totalCount}">
+									<c:if test="${pagingVO.curentPageNo+2 < pagingVO.totalCount}">
 										<li><a href="/student/allCourse?page=${pagingVO.curentPageNo+2}">${pagingVO.curentPageNo+2}</a></li>
 									</c:if>
-									<c:if test="${pagingVO.curentPageNo+3 <= pagingVO.totalCount}">
+									<c:if test="${pagingVO.curentPageNo+3 < pagingVO.totalCount}">
 										<li><a href="/student/showCourse?page=${pagingVO.curentPageNo+3}">${pagingVO.curentPageNo+3}</a></li>
 									</c:if>
-									<c:if test="${pagingVO.curentPageNo+4 <= pagingVO.totalCount}">
+									<c:if test="${pagingVO.curentPageNo+4 < pagingVO.totalCount}">
 										<li><a href="/student/allCourse?page=${pagingVO.curentPageNo+4}">${pagingVO.curentPageNo+4}</a></li>
 									</c:if>
 									<li><a href="/student/allCourse?page=${pagingVO.totalCount}">最后一页&raquo;</a></li>
@@ -92,4 +92,5 @@
 		</div>
 	</div>
 </body>
+
 </html>

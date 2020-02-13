@@ -159,7 +159,7 @@
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update student
-    <set >
+    <set>
       <if test="record.userId != null" >
         userID = #{record.userId,jdbcType=INTEGER},
       </if>
@@ -217,12 +217,19 @@
     where userID = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="po.Student" >
-    update student
-    set userName = #{userName,jdbcType=VARCHAR},
+    update student set
+      userName = #{userName,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       birthYear = #{birthYear,jdbcType=DATE},
       grade = #{grade,jdbcType=DATE},
       collegeID = #{collegeId,jdbcType=INTEGER}
+    where userID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="stuUpdateByPrimaryKey" parameterType="po.Student" >
+    update student set
+    userName = #{userName,jdbcType=VARCHAR},
+    sex = #{sex,jdbcType=VARCHAR},
+    birthYear = #{birthYear,jdbcType=DATE}
     where userID = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

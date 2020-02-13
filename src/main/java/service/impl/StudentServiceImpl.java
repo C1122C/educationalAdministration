@@ -25,7 +25,10 @@ public class StudentServiceImpl implements StudentService {
     private CollegeMapper collegeMapper;
 
     public void updateById(Integer id, StudentCustom studentCustom) throws Exception {
-        studentMapper.updateByPrimaryKey(studentCustom);
+        System.out.println("IN RIGHT SERVICE");
+        studentCustom.setUserId(id);
+        studentMapper.stuUpdateByPrimaryKey(studentCustom);
+        System.out.println("FINISH DB OPERATION");
     }
 
     public void removeById(Integer id) throws Exception {

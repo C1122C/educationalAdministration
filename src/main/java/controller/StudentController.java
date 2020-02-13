@@ -1,5 +1,7 @@
 package controller;
 
+import exception.CustomException;
+import org.springframework.web.bind.annotation.RequestMethod;
 import po.*;
 import service.CourseService;
 import service.SelectedCourseService;
@@ -46,6 +48,19 @@ public class StudentController {
         model.addAttribute("pagingVO", pagingVO);
 
         return "student/allCourse";
+    }
+
+    @RequestMapping(value = "/searchCourse")
+    public String searchCourse(String findByName, Model model) throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        Integer username = Integer.parseInt((String)subject.getPrincipal());
+        PagingVO pagingVO = new PagingVO();
+        pagingVO.setId(username);
+        pagingVO.setName('%'+findByName+'%');
+        List<CourseCustom> list = courseService.stuFindByName(pagingVO);
+
+        model.addAttribute("courseList", list);
+        return "/student/allCourse";
     }
 
     @RequestMapping(value = "/selectCourse")
@@ -96,23 +111,28 @@ public class StudentController {
         return "/student/overCourse";
     }
 
-    //修改密码
-    @RequestMapping(value = "/personalMod")
-    public String passwordRest() throws Exception {
+    //获取信息
+    @RequestMapping(value = "/personalInfo")
+    public String personalInfo(Model model) throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        Integer id = Integer.parseInt((String)subject.getPrincipal());
+        StudentCustom studentCustom = studentService.findById(id);
+        if (studentCustom == null) {
+            throw new CustomException("未找到该名学生");
+        }
+
+        model.addAttribute("student", studentCustom);
         return "student/personalInfo";
     }
 
-    @RequestMapping(value = "/searchCourse")
-    public String searchCourse(String findByName, Model model) throws Exception {
+    @RequestMapping(value = "/editInfo", method = {RequestMethod.POST})
+    public String editStudent(StudentCustom studentCustom) throws Exception {
+        System.out.println("IN RIGHT CONTROLLER");
         Subject subject = SecurityUtils.getSubject();
-        Integer username = Integer.parseInt((String)subject.getPrincipal());
-        PagingVO pagingVO = new PagingVO();
-        pagingVO.setId(username);
-        pagingVO.setName('%'+findByName+'%');
-        List<CourseCustom> list = courseService.stuFindByName(pagingVO);
+        Integer id = Integer.parseInt((String)subject.getPrincipal());
+        studentService.updateById(id, studentCustom);
 
-        model.addAttribute("courseList", list);
-        return "/student/allCourse";
+        return "redirect:/student/personalInfo";
     }
 
 }

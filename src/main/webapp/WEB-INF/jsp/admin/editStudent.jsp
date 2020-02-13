@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>个人信息</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- 引入bootstrap -->
@@ -26,7 +26,7 @@
 				<div class="panel panel-default">
 				    <div class="panel-heading">
 						<div class="row">
-					    	<h1 style="text-align: center;">修改学生信息</h1>
+							<h1 class="col-md-5">个人信息</h1>
 						</div>
 				    </div>
 				    <div class="panel-body">
